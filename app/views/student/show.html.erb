@@ -1,0 +1,7 @@
+<span id="name-<%= @student.id %>"><h2>Student: <%= @student.name %></h2></span>
+
+<section class="courses">
+  <p>Courses: <% @courses.each do |course| %></p>
+      <ul><%= course.name %></ul>
+  <% end %>
+</section>
