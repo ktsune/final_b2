@@ -16,3 +16,8 @@ physics = Course.create!(name: "Physics")
 psychology = Course.create!(name: "Psychology")
 economics = Course.create(name: "Economics")
 world_religion = Course.create(name: "World Religion")
+
+peregrine.courses << physics
+peregrine.courses << psychology
+mulan.courses << economics
+mulan.courses << world_religion
