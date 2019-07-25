@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 
 RSpec.describe Student do
   describe 'validations' do
@@ -6,7 +6,7 @@ RSpec.describe Student do
   end
 
   describe 'relationships' do
-    it {should have_many(:course_students)}
-    it {should have_many(:courses).through(:course_students)}
+    it {should have_many(:student_courses)}
+    it {should have_many(:courses).through(:student_courses)}
   end
 end

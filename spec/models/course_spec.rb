@@ -6,7 +6,7 @@ RSpec.describe Course do
   end
 
   describe 'relationships' do
-    it {should have_many(:course_students)}
-    it {should have_many(:students).through(:course_students)}
+    it {should have_many(:student_courses)}
+    it {should have_many(:students).through(:student_courses)}
   end
-end 
+end
