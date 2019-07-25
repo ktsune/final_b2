@@ -11,6 +11,7 @@ Course.destroy_all
 
 peregrine = Student.create!(name: "Peregrine")
 mulan = Student.create!(name: "Mulan")
+jerid = Student.create!(name: "Jerid")
 
 physics = Course.create!(name: "Physics")
 psychology = Course.create!(name: "Psychology")
@@ -19,5 +20,11 @@ world_religion = Course.create(name: "World Religion")
 
 peregrine.courses << physics
 peregrine.courses << psychology
+
+mulan.courses << physics
 mulan.courses << economics
 mulan.courses << world_religion
+
+jerid.courses << economics
+jerid.courses << psychology
+jerid.courses << world_religion
