@@ -1,0 +1,8 @@
+<h2>Students in Each Course Ranked by Grade</h2>
+
+<% @courses.each do |course| %>
+  <% course.students.each do |student| %>
+    <h4><%= course.name %>: </h4>
+    <li><%= student.name %></li>
+  <% end %>
+<% end %>
