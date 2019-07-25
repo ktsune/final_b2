@@ -9,7 +9,7 @@ RSpec.describe 'User' do
       @psychology = Course.create!(name: "Psychology")
       @economics = Course.create(name: "Economics")
       @world_religion = Course.create(name: "World Religion")
-      visit course_index_path
+      visit courses_path
     end
 
     it 'I see each course name' do
