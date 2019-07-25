@@ -9,7 +9,7 @@ RSpec.describe 'User' do
       @psychology = Course.create!(name: "Psychology")
       @economics = Course.create(name: "Economics")
       @world_religion = Course.create(name: "World Religion")
-      visit course_path
+      visit course_index_path
     end
 
     it 'I see each course name' do
@@ -18,6 +18,6 @@ RSpec.describe 'User' do
       expect(page).to have_content(@psychology.name)
       expect(page).to have_content(@economics.name)
       expect(page).to have_content(@world_religion.name)
-    end 
+    end
   end
 end
