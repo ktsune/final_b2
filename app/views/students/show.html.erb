@@ -1,12 +1,8 @@
 <span id="name-<%= @student.id %>"><h2>Student: <%= @student.name %></h2></span>
 
 <section class="courses">
-  <section>
-    <% @student.student_courses.each do |course| %>
-      <p> Grade: <%= course.grade %> </p>
+    <% @student.student_courses.each do |student_course| %>
+      <h4> Course: <%= student_course.course.name %> </h4>
+      <p> Grade: <%= student_course.grade %> </p>
     <% end %>
-  </section>
-  <p>Courses: <% @courses.each do |course| %></p>
-      <ul><%= course.name %></ul>
-  <% end %>
 </section>
