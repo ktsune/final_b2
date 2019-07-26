@@ -18,20 +18,24 @@ RSpec.describe 'User' do
     end
 
     it 'I see each course name' do
-      
-      expect(page).to have_content(@physics.name)
-      expect(page).to have_content(@psychology.name)
-      expect(page).to have_content(@economics.name)
-      expect(page).to have_content(@world_religion.name)
+
+    within '.course_name' do
+        expect(page).to have_content(@psychology.name)
+        expect(page).to have_content(@physics.name)
+        expect(page).to have_content(@economics.name)
+        expect(page).to have_content(@world_religion.name)
+      end
     end
 
-    it 'I should see student grades listed for each course' do
+    it 'I see all students grades listed for each course' do
 
-      expect(page).to have_content(@peregrine_physics.grade)
-      expect(page).to have_content(@peregrine_psychology.grade)
-      expect(page).to have_content(@mulan_physics.grade)
-      expect(page).to have_content(@mulan_economics.grade)
-      expect(page).to have_content(@mulan_world.grade)
+    within '.student_grades' do
+        expect(page).to have_content(@peregrine_physics.grade)
+        expect(page).to have_content(@peregrine_psychology.grade)
+        expect(page).to have_content(@mulan_physics.grade)
+        expect(page).to have_content(@mulan_economics.grade)
+        expect(page).to have_content(@mulan_world.grade)
+      end
     end
   end
 end
