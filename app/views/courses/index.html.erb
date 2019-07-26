@@ -2,7 +2,8 @@
 
 <% @courses.each do |course| %>
   <h4><%= course.name %>: </h4>
-  <% course.students.each do |student| %>
-    <li><%= student.name %></li>
+  <% course.student_courses.ordered_grades.each do |student_course| %>
+    <p>student: <%= student_course.student.name %></p>
+    <p>grade: <%= student_course.grade %></p>
   <% end %>
 <% end %>
