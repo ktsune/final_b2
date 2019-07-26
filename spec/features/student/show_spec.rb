@@ -27,7 +27,7 @@ RSpec.describe 'User' do
       end
     end
 
-    it 'I can see student courses, and grades for each course' do
+    it "I can see the student's courses, and grades for each course" do
       visit student_path(@peregrine)
 
       within ".courses" do
