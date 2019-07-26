@@ -9,6 +9,8 @@ RSpec.describe 'User' do
       @psychology = Course.create!(name: "Psychology")
       @economics = Course.create(name: "Economics")
       @world_religion = Course.create(name: "World Religion")
+      @peregrine_physics = @peregrine.student_courses.create(course_id: @physics.id, grade: 97.0)
+      @mulan_physics = @mulan.student_courses.create(course_id: @physics.id, grade: 75.1)
     end
 
     it 'I see student name' do
@@ -30,12 +32,14 @@ RSpec.describe 'User' do
 
       within ".courses" do
         expect(page).to have_content(@peregrine.courses.name)
+        expect(page).to have_content(@peregrine_physics.grade)
       end
 
       visit student_path(@mulan)
 
       within ".courses" do
         expect(page).to have_content(@mulan.courses.name)
+        expect(page).to have_content(@mulan_physics.grade)
       end
     end
   end

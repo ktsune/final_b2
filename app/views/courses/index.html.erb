@@ -1,0 +1,9 @@
+<h2>Students in Each Course Ranked by Grade (highest => lowest)</h2>
+
+<% @courses.each do |course| %>
+  <h4><%= course.name %>:</h4>
+  <% course.student_courses.ordered_grades.each do |student_course| %>
+    <p>student: <%= student_course.student.name %></p>
+    <p>grade: <%= student_course.grade %></p>
+  <% end %>
+<% end %>
