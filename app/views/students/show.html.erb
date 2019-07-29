@@ -6,3 +6,9 @@
       <p> Grade: <%= student_course.grade %> </p>
     <% end %>
 </section>
+
+<%= form_tag do %>
+  <%= label_tag :course_id, "Course Id"%>
+  <%= number_field_tag :course_id %>
+  <%= submit_tag "Submit" %>
+<% end %>
