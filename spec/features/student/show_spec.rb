@@ -10,6 +10,7 @@ RSpec.describe 'User' do
       @economics = Course.create(name: "Economics")
       @world_religion = Course.create(name: "World Religion")
       @peregrine_physics = @peregrine.student_courses.create(course_id: @physics.id, grade: 97.0)
+      @peregrine_world_religion = @peregrine.student_courses.create(course_id: @world_religion.id, grade: 97.0)
       @mulan_physics = @mulan.student_courses.create(course_id: @physics.id, grade: 75.1)
     end
 
@@ -41,6 +42,18 @@ RSpec.describe 'User' do
         expect(page).to have_content(@mulan.courses.name)
         expect(page).to have_content(@mulan_physics.grade)
       end
+    end
+
+    it "I can enroll in a course" do
+      visit student_path(@peregrine)
+
+      expect(page).to have_content(@physics.name)
+
+      fill_in "Course Id", with: @world_religion.id
+      click_on "Submit"
+
+      expect(page).to have_content(@physics.name)
+      expect(page).to have_content(@world_religion.name)
     end
   end
 end
