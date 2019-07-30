@@ -1,0 +1,11 @@
+<section class='course_name'>
+  <section class='student_grades'>
+      <h4><%= @course.name %>:</h4>
+        <% @course.student_courses.ordered_grades.each do |student_course| %>
+          <p>student: <%= student_course.student.name %></p>
+          <p>grade: <%= student_course.grade %></p>
+        <% end %>
+    </section>
+</section>
+
+<%= button_to 'Unenroll', "/courses/#{@student.id}", method: :delete %>
