@@ -13,14 +13,25 @@ RSpec.describe 'User' do
       @mulan_physics = @mulan.student_courses.create(course_id: @physics.id, grade: 75.1)
     end
 
-  it 'I see all students grades listed for each course' do
-    visit student_path(@peregrine)
+    it 'I see all students grades listed for each course' do
+      visit course_path(@physics)
 
-  # within '.student_grades' do
-      expect(page).to have_content(@peregrine_physics.grade)
-      expect(page).to have_content(@mulan_physics.grade)
-      expect(page).to have_content(@peregrine_world_religion.grade)
+    # within '.student_grades' do
+        expect(page).to have_content(@physics.name)
+        expect(page).to have_content(@mulan_physics.grade)
+        expect(page).to have_content(@peregrine_physics.grade)
+
     # end
+    end
+
+    it 'I can unenroll a student from a course' do
+      visit course_path(@physics)
+
+      expect(page).to have_content(@peregrine_physics.grade)
+
+      click_on "Unenroll"
+
+      expect(page).to have_no_content(@peregrine_physics.grade)
+    end
   end
-  end 
 end

@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show]
 
   post '/students/:id', to: 'students#enroll'
-  patch '/courses/:id', to: 'courses#unenroll'
+  delete '/courses/:student_id', to: 'courses#unenroll'
 end

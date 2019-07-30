@@ -5,6 +5,7 @@
           <p>student: <%= student_course.student.name %></p>
           <p>grade: <%= student_course.grade %></p>
         <% end %>
-
     </section>
 </section>
+
+<%= button_to 'Unenroll', "/courses/#{@student.id}", method: :delete %>
