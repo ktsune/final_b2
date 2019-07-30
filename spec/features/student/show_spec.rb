@@ -31,17 +31,17 @@ RSpec.describe 'User' do
     it "I can see the student's courses, and grades for each course" do
       visit student_path(@peregrine)
 
-      within ".courses" do
+      # within ".courses" do
         expect(page).to have_content(@peregrine.courses.name)
         expect(page).to have_content(@peregrine_physics.grade)
-      end
+      # end
 
       visit student_path(@mulan)
 
-      within ".courses" do
+      # within ".courses" do
         expect(page).to have_content(@mulan.courses.name)
         expect(page).to have_content(@mulan_physics.grade)
-      end
+      # end
     end
 
     it "I can enroll in a course" do
@@ -54,6 +54,16 @@ RSpec.describe 'User' do
 
       expect(page).to have_content(@physics.name)
       expect(page).to have_content(@world_religion.name)
+    end
+
+    it 'I see all students grades listed for each course' do
+      visit student_path(@peregrine)
+
+    # within '.student_grades' do
+        expect(page).to have_content(@peregrine_physics.grade)
+        expect(page).to have_content(@mulan_physics.grade)
+        expect(page).to have_content(@peregrine_world_religion.grade)
+      # end
     end
   end
 end

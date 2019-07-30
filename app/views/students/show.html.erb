@@ -1,14 +1,19 @@
 <span id="name-<%= @student.id %>"><h2>Student: <%= @student.name %></h2></span>
 
-<section class="courses">
-    <% @student.student_courses.each do |student_course| %>
-      <h4> Course: <%= student_course.course.name %> </h4>
-      <p> Grade: <%= student_course.grade %> </p>
-    <% end %>
-</section>
-
 <%= form_tag do %>
   <%= label_tag :course_id, "Course Id"%>
   <%= number_field_tag :course_id %>
   <%= submit_tag "Submit" %>
 <% end %>
+
+<section class='course_name'>
+  <section class='student_grades'>
+    <% @courses.each do |course| %>
+      <h4><%= course.name %>:</h4>
+        <% course.student_courses.ordered_grades.each do |student_course| %>
+          <p>student: <%= student_course.student.name %></p>
+          <p>grade: <%= student_course.grade %></p>
+        <% end %>
+      <% end %>
+    </section>
+</section>
