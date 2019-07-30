@@ -56,14 +56,5 @@ RSpec.describe 'User' do
       expect(page).to have_content(@world_religion.name)
     end
 
-    it 'I see all students grades listed for each course' do
-      visit student_path(@peregrine)
-
-    # within '.student_grades' do
-        expect(page).to have_content(@peregrine_physics.grade)
-        expect(page).to have_content(@mulan_physics.grade)
-        expect(page).to have_content(@peregrine_world_religion.grade)
-      # end
-    end
   end
 end
